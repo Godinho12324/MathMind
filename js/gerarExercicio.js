@@ -16,7 +16,7 @@ function gerarExercicio(){
 
     if(tipo === 0){
 
-        let n = Math.floor(Math.random()*9 + 1) * 10**13
+        let n = numeroCientifico(6,12)
         resposta = n * cargaEletron
 
         document.getElementById("pergunta").innerText =
@@ -33,7 +33,7 @@ Q = ${cientifica(resposta)} C`
 
     else if(tipo === 1){
 
-        let n = Math.floor(Math.random()*9 + 1) * 10**13
+        let n = numeroCientifico(6,12)
         resposta = n * cargaProton
 
         document.getElementById("pergunta").innerText =
@@ -50,8 +50,8 @@ Q = ${cientifica(resposta)} C`
 
     else if(tipo === 2){
 
-        let protons = Math.floor(Math.random()*9 + 1) * 10**25
-        let eletrons = Math.floor(Math.random()*9 + 1) * 10**25
+        let protons = numeroCientifico(20,25)
+        let eletrons = numeroCientifico(20,25)
 
         resposta = (protons*cargaProton) + (eletrons*cargaEletron)
 
@@ -71,7 +71,7 @@ Q = ${cientifica(resposta)} C`
 
     else if(tipo === 3){
 
-        let n = Math.floor(Math.random()*9 + 1) * 10**14
+        let n = numeroCientifico(10,15)
         let Q = n * e
 
         resposta = n
@@ -89,8 +89,11 @@ n = ${cientifica(n)} partículas`
 
     else if(tipo === 4){
 
-        let q = (Math.floor(Math.random()*9)+1) * 10
-        let d = Math.floor(Math.random()*9 + 1)
+        let cargas = [4,6,8,10,12,16,20,30,40,50,64,70,80,100]
+        let q = cargas[Math.floor(Math.random()*cargas.length)]
+        
+        let distancias = [1,2,3,4,5]
+        let d = distancias[Math.floor(Math.random()*distancias.length)]
 
         resposta = k*q/(d**2)
 
@@ -112,14 +115,18 @@ E = ${cientifica(resposta)} N/C`
 
         canvas.style.display = "block"
 
-        let q1 = (Math.floor(Math.random()*5)+1) * 10
-        let q2 = (Math.floor(Math.random()*5)+1) * 10
+        let cargas = [10,20,30,40,50,64,70,80,100]
+
+        let q1 = cargas[Math.floor(Math.random()*cargas.length)]
+        let q2 = cargas[Math.floor(Math.random()*cargas.length)]
 
         if(Math.random()>0.5) q1 *= -1
         if(Math.random()>0.5) q2 *= -1
 
-        let d1 = Math.floor(Math.random()*3 +1)
-        let d2 = Math.floor(Math.random()*3 +1)
+        let distancias = [1,2,3,4,5]
+
+        let d1 = distancias[Math.floor(Math.random()*distancias.length)]
+        let d2 = distancias[Math.floor(Math.random()*distancias.length)]
 
         let r1 = d1 + d2
         let r2 = d2
